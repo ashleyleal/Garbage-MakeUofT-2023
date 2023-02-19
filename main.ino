@@ -1,8 +1,12 @@
 #include <Servo.h>
+#include <Arduino.h>
 
 // Initialize servo motors
 Servo servo1;
 Servo servo2;
+
+//buzzer
+int buzzerPin = 22;
 
 //Left ultrasonic sensor (blue)
 const int pingPin1 = 4; // Trigger Pin of Ultrasonic Sensor
@@ -21,16 +25,20 @@ const int motorPin1 = 8;
 //const int motorPin2 = 11;
 //const int motorPin3 = 12;
 //const int motorPin4 = 3;
+const int chipSelect = 4; // SD card chip select pin
+const int ledPin = 13; // onboard LED pin
 
 
 void setup() {
    Serial.begin(9600); // Starting Serial Terminal
    servo1.attach(9);
    servo2.attach(10);
-   pinMode(motorPin1, OUTPUT);
+   pinMode(22, OUTPUT);
+   
 }
 
 void loop() {
+   
    long duration1, inches1, cm1;
    long duration2, inches2, cm2;
    long duration3, inches3, cm3;
@@ -63,32 +71,51 @@ void loop() {
    Serial.print(cm3);
    Serial.print("cm right: ");
    Serial.println();
-   
- //  if(cm1>10)
-      //digitalWrite(motorPin1, HIGH);
+   /*
+   if(cm1>10)
+      digitalWrite(motorPin1, HIGH);
      // digitalWrite(motorPin3, LOW);
-  // if(cm3>10)
-//      digitalWrite(motorPin3, HIGH);
-      //digitalWrite(motorPin1, LOW);
-   //if(cm2>10)
-//     digitalWrite(motorPin2, HIGH);
-//    digitalWrite(motorPin4, HIGH);
-
-digitalWrite(motorPin1, HIGH);
-delay(2000);
+   if(cm3>10)
+      digitalWrite(motorPin3, HIGH);
+      digitalWrite(motorPin1, LOW);
+   if(cm2>10)
+      digitalWrite(motorPin2, HIGH);
+     digitalWrite(motorPin4, HIGH);
+     */
    
    //Servos
-   if (cm1 < 20 || cm2 < 20 || cm3 < 20) {
-    servo1.write(90);
-    servo2.write(90);
-    delay(1);
+   if (cm1 < 30 || cm2 < 30 || cm3 < 30) {
+      servo1.write(0);
+      servo2.write(0);
+      delay(1);
+      digitalWrite(buzzerPin, HIGH);
+      delay(10);
+      digitalWrite(buzzerPin, LOW);
+      delay(10); // Turn the buzzer on with lower voltage
+      /*
+      digitalWrite(ledPin, HIGH); // Turn the LED on
+      delay(10); // Wait for 1 second
+      digitalWrite(ledPin, LOW); // Turn the LED off
+      delay(10); // Wait for 1 second
+      */
+      
    }
    else {
     servo1.write(180);
     servo2.write(180);
+    digitalWrite(buzzerPin, LOW); // Turn the buzzer off
     delay(1);
 
 }
+
+//buzzer
+/*
+  digitalWrite(buzzerPin, HIGH);
+  delay(1000);
+  digitalWrite(buzzerPin, LOW);
+  delay(1000);
+  */
+
 }
 
 long microsecondsToCentimeters(long microseconds) {
