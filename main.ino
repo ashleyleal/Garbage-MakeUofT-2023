@@ -33,6 +33,7 @@ void setup() {
    Serial.begin(9600); // Starting Serial Terminal
    servo1.attach(9);
    servo2.attach(10);
+   //this is buzzer
    pinMode(22, OUTPUT);
    
 }
@@ -86,7 +87,7 @@ void loop() {
    //Servos
    if (cm1 < 30 || cm2 < 30 || cm3 < 30) {
       servo1.write(0);
-      servo2.write(0);
+      servo2.write(180);
       delay(1);
       digitalWrite(buzzerPin, HIGH);
       delay(10);
@@ -102,7 +103,7 @@ void loop() {
    }
    else {
     servo1.write(180);
-    servo2.write(180);
+    servo2.write(0);
     digitalWrite(buzzerPin, LOW); // Turn the buzzer off
     delay(1);
 
@@ -131,3 +132,5 @@ void setupUltrasonicSensor(int pingPin, int echoPin) {
    digitalWrite(pingPin, LOW);
    pinMode(echoPin, INPUT);
 }
+
+
