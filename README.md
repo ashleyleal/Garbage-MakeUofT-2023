@@ -2,6 +2,8 @@
 
 Garbage is a MakeUofT 2023 submission by Ashley L, Zuha M, and Winnie H.
 
+![IMG_4320](https://user-images.githubusercontent.com/69736735/220229091-85aeefa1-6b74-4cc0-b540-8a020ae1891a.jpg)
+
 Inspiration: 
 Welcome to the world of useless inventions, where creativity and absurdity collide! In this strange and comical realm, we introduce to you the "Garbage". This useless invention is a trashcan like no other. As you try to throw something in, the trashcan closes and begins to laugh hysterically at you, mocking your futile attempt to dispose of your waste. But that's not all - Garbage takes things to the next level by running away from you after every failed attempt, making it nearly impossible to get rid of your trash. While this invention may not serve any practical purpose, it's sure to bring a few laughs and a lot of frustration to those who dare to try and use it. So, come on in, and join us in exploring the absurd world of useless inventions with Garbage!
 
